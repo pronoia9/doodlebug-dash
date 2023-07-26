@@ -27,21 +27,21 @@ const CarCard = ({ car }: { car: CarProps }) => {
       </p>
 
       <div className='relative w-full h-40 my-3 object-contain'>
-        <Image src={generateCarImageUrl(car)} alt='car model' fill priority className='object-contain' />
+        <Image className='object-contain' src={generateCarImageUrl(car)} alt='car model' fill priority sizes='1000vw' />
       </div>
 
       <div className='relative flex w-full mt-2'>
         <div className='flex group-hover:invisible w-full justify-between text-grey'>
           <div className='flex flex-col justify-center items-center gap-2'>
-            <Image src='/steering-wheel.svg' width={20} height={20} alt='steering wheel' />
+            <Image className='w-auto h-auto' src='/steering-wheel.svg' width={20} height={20} alt='steering wheel' />
             <p className='text-[14px] leading-[17px]'>{transmission === 'a' ? 'Automatic' : 'Manual'}</p>
           </div>
           <div className='car-card__icon'>
-            <Image src='/tire.svg' width={20} height={20} alt='seat' />
+            <Image className='w-auto h-auto' src='/tire.svg' width={20} height={20} alt='seat' />
             <p className='car-card__icon-text'>{drive.toUpperCase()}</p>
           </div>
           <div className='car-card__icon'>
-            <Image className='h-auto w-auto' src='/gas.svg' width={20} height={20} alt='seat' />
+            <Image className='w-auto h-auto' src='/gas.svg' width={20} height={20} alt='gas' />
             <p className='car-card__icon-text'>{city_mpg} MPG</p>
           </div>
         </div>
@@ -52,14 +52,18 @@ const CarCard = ({ car }: { car: CarProps }) => {
             containerStyles='w-full py-[16px] rounded-full bg-primary-blue'
             textStyles='text-white text-[14px] leading-[17px] font-bold'
             rightIcon='/right-arrow.svg'
-            handleClick={() => { setIsOpen(true); }}
+            handleClick={() => {
+              setIsOpen(true);
+            }}
           />
         </div>
       </div>
 
       <CarDetails
         isOpen={isOpen}
-        closeModal={() => { setIsOpen(false); }}
+        closeModal={() => {
+          setIsOpen(false);
+        }}
         car={car}
       />
     </div>
