@@ -52,12 +52,12 @@ const CarCard = ({ car }: { car: CarProps }) => {
             containerStyles='w-full py-[16px] rounded-full bg-primary-blue'
             textStyles='text-white text-[14px] leading-[17px] font-bold'
             rightIcon='/right-arrow.svg'
-            handleClick={() => setIsOpen(true)}
+            handleClick={() => { setIsOpen(true); }}
           />
         </div>
       </div>
 
-      <CarDetails isOpen={isOpen} closeModal={() => setIsOpen(false)} car={car} />
+      <CarDetails isOpen={isOpen} closeModal={() => { setIsOpen(false); }} car={car} />
     </div>
   );
 };
