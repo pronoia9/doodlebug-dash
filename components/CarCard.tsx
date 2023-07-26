@@ -41,7 +41,7 @@ const CarCard = ({ car }: { car: CarProps }) => {
             <p className='car-card__icon-text'>{drive.toUpperCase()}</p>
           </div>
           <div className='car-card__icon'>
-            <Image src='/gas.svg' width={20} height={20} alt='seat' />
+            <Image className='h-auto w-auto' src='/gas.svg' width={20} height={20} alt='seat' />
             <p className='car-card__icon-text'>{city_mpg} MPG</p>
           </div>
         </div>
@@ -57,7 +57,11 @@ const CarCard = ({ car }: { car: CarProps }) => {
         </div>
       </div>
 
-      <CarDetails isOpen={isOpen} closeModal={() => { setIsOpen(false); }} car={car} />
+      <CarDetails
+        isOpen={isOpen}
+        closeModal={() => { setIsOpen(false); }}
+        car={car}
+      />
     </div>
   );
 };
