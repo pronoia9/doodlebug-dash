@@ -32,9 +32,14 @@ const Searchbar = () => {
   };
 
   useEffect(() => {
+    const search = setTimeout(() => { updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase()); }, 100);
+    return () => { clearTimeout(search); };
+  }, [manufacturer]);
+  
+  useEffect(() => {
     const search = setTimeout(() => { updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase()); }, 500);
     return () => { clearTimeout(search); };
-  }, [manufacturer, model]);
+  }, [model]);
 
   return (
     <form className='searchbar' onSubmit={handleSearch}>
